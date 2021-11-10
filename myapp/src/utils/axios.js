@@ -6,7 +6,7 @@
  axios.defaults.withCredentials = true;
  const service = axios.create({
      baseURL: 'http://www.zhangjingzhe.net',
-     
+
  })
- export default axios;
+ export default service;
  
