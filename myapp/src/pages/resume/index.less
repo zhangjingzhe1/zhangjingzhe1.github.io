@@ -1,0 +1,122 @@
+:global {
+    #root {
+        display: block;
+        position: relative;
+        height: 100%;
+        overflow:hidden;
+        padding-bottom: 20px;
+    }
+    .ant-row {
+        width: 100%;
+        line-height: 32px;
+    }
+}
+.clock {
+    width: 850px;
+    height: 100%;
+    position: absolute;
+    float: right;
+    z-index: -1;
+    opacity: 0.3;
+}
+@media screen and (max-width: 850px) {
+    .clock {
+        right: 20px;
+    }
+}
+.resume-content{
+    max-height: 100%;
+    max-width: 850px;
+    overflow-y: scroll;
+    margin: 0 auto;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    &::-webkit-scrollbar {/*滚动条整体样式*/
+        width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+        height: 1px;
+    }
+
+    &::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+        border-radius: 10px;
+         -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        background: #535353;
+    }
+
+    &::-webkit-scrollbar-track {/*滚动条里面轨道*/
+        // -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        background: #fff;
+    }
+}
+.resume-title{
+    display: block;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    color:#000;
+    margin: 20px auto;
+}
+.resume-label {
+    font-size: 16px;
+    font-weight: 800;
+    &::after{
+        position: absolute;
+        content: ":"
+    }
+}
+.resume-line-tittle {
+    height: 32px;
+    padding-top: 6px;
+    padding-left: 5px;
+    background: #ddd;
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+    span{
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 20px;
+        height: 20px;
+        padding-left: 20px;
+        border-left: 3px solid red;
+    }
+}
+.resume-remarks {
+    font-size: 18px;
+    font-weight: 800;
+    color: #ddd;
+}
+.resume-school{
+    padding: 10px;
+}
+.resume-companys {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.resume-companys-name {
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+.split-line {
+    margin: 12px 0;
+    height: 1px;
+    width: 100%;
+    border: 1px solid #efefef;
+}
+.resume-companys-object {
+    border: 1px solid #ddd;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    background: #ddd;
+}
+.resume-object-remark {
+    margin-top: 20px;
+    font-size: 16px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    div{
+        font-weight: 700;
+    }
+}

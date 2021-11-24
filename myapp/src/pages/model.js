@@ -37,9 +37,7 @@ const Model = {
           payload: response,
               }); 
               // 通讯成功
-        if (response.status === 'ok') {
-          message.success('🎉 🎉 🎉  通讯成功！');
-              }
+        return response
           }
       },
     reducers: {
@@ -52,8 +50,10 @@ const Model = {
       setgetDate(state, { payload }) {
         //setAuthority(payload.currentAuthority); //设置验证识别
         console.log(payload)
-        const {data = {}} = payload;
-        return { ...state, ...data };
+        const {data = {}, config ={}} = payload;
+        const obj={};
+        obj[config.params.name.replace('.','')] = data.data;
+        return { ...state, ...obj };
       },
     },
   };
