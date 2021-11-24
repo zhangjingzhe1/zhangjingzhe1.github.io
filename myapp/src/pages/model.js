@@ -1,4 +1,4 @@
-import {getMenus} from './service'
+import {getMenus, getData, setData} from './service'
 const Model = {
     namespace: 'main',
     state: {
@@ -18,15 +18,42 @@ const Model = {
         if (response.status === 'ok') {
           message.success('🎉 🎉 🎉  通讯成功！');
               }
+          },
+      *getData({ payload }, { call, put }) {
+        const response = yield call(getData, payload);
+        yield put({
+          type: 'setgetDate', //调用reducers同步方法改变仓库数据
+          payload: response,
+              }); 
+              // 通讯成功
+        if (response.status === 'ok') {
+          message.success('🎉 🎉 🎉  通讯成功！');
+              }
+          },
+      *setData({ payload }, { call, put }) {
+        const response = yield call(setData, payload);
+        yield put({
+          type: 'setgetDate', //调用reducers同步方法改变仓库数据
+          payload: response,
+              }); 
+              // 通讯成功
+        if (response.status === 'ok') {
+          message.success('🎉 🎉 🎉  通讯成功！');
+              }
           }
       },
     reducers: {
       sendData(state, { payload }) {
         //setAuthority(payload.currentAuthority); //设置验证识别
-        console.log(payload)
         const {data = {}} = payload;
         const {data: {title, menus}} = data;
         return { ...state, title, menus };
+      },
+      setgetDate(state, { payload }) {
+        //setAuthority(payload.currentAuthority); //设置验证识别
+        console.log(payload)
+        const {data = {}} = payload;
+        return { ...state, ...data };
       },
     },
   };

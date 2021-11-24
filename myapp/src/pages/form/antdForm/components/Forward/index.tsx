@@ -1,19 +1,35 @@
 import React, {useState, useEffect} from 'react';
-import { Button, Input } from 'antd';
+import { Button, Input, message } from 'antd';
 import styles from './index.less';
 
 
 export default function Forward(props) {
-    const [name, setname] = useState('defaultName');
-    const [nameState, setnameState] = useState(false)
-    const inputChange = (value) => {
-        name = value
+    const [params, setparams] = useState({
+      num: 0
+    });
+    const [numb, setnumb] = useState(0);
+    const [btnType, setBtnTypes] = useState(true)
+    const btnClick = () => {
+      params.num = params.num+1;
+      try{
+        numb++
+      }catch(e) {
+        console.log(e)
+      }
+      setparams(params)
+      // setBtnTypes(!btnType)
+      message.info(params.num)
     }
+    useEffect(() => {
+      message.info('useEffect'+params.num)
+    },[params.num])
   return (
     <div>
-      <span>当前name为{name}</span>
-      <Input defaultValue={name} onChange={(e) => inputChange(e.target.value)} />
-      <Button type="primary" onClick={() => {setnameState(!nameState)}}>修改nameState</Button>
+      <h1>useState</h1>
+      <span>params.num{params.num}</span>
+      <span>numb{numb}</span>
+      {btnType}
+      <Button onClick={() => {btnClick()}}>修改nameState</Button>
     </div>
   );
 }

@@ -9,7 +9,7 @@ export default defineConfig({
   fastRefresh: {},
   proxy: {
     '/api': {
-      target: 'http://www.zhangjingzhe.net/api',
+      target: 'http://localhost:5000/api',
       pathRewrite: { '^/api': '' },
       changeOrigin: true
     }

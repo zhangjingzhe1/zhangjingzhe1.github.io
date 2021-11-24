@@ -1,3 +1,3 @@
 export default [
-    { path: '/form/antdForm', component: './form/antdForm' },
+    { path: '/react/form/antdForm', component: './form/antdForm' },
 ]

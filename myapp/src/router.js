@@ -1,11 +1,14 @@
 
 import formRouters from './pages/form/router'
 export default [
-    { path: '/', component: './index',
+    { path: '/react', component: './index',
       routes: [
-        { path: '/form', component: './form/index',
+        { path: '/react/form', component: './form/index',
           routes: formRouters
         },
+        { path: '/react/1024', component: './1024/index'},
+        
       ]
     },
+    { path: '/', component: './resume/index'},
   ]
