@@ -5,6 +5,7 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  history: {type: 'hash'},
   routes: Router,
   fastRefresh: {},
   proxy: {
@@ -14,6 +15,7 @@ export default defineConfig({
       changeOrigin: true
     }
   },
+  outputPath: "../",
   cssLoader: {
     localsConvention: 'camelCase',
   },

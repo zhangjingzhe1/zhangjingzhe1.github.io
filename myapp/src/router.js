@@ -6,9 +6,10 @@ export default [
         { path: '/react/form', component: './form/index',
           routes: formRouters
         },
-        { path: '/react/1024', component: './1024/index'},
+        
         
       ]
     },
+    { path: '/1024', component: './1024/index'},
     { path: '/', component: './resume/index'},
   ]
