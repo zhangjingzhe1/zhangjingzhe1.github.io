@@ -72,7 +72,6 @@ class Gaming1024 extends React.Component {
   }
   render() {
     const { baseData, baseLine } =this.state;
-    console.log(baseData)
     return (
       <div className={styles.mainContent}>
         <Row><Button type="primary" onClick={this.reset}>重置</Button></Row>

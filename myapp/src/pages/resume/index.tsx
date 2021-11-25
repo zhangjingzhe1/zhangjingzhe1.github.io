@@ -25,7 +25,7 @@ function Resume(props) {
   const handleOk = () => {
     Modal.confirm({
       title: '提示',
-      content: '本人无意获取您的个人信息，请再次确认是否发送信息给我？',
+      content: '是否确认要发送消息给我？',
       okText: '确认',
       onOk:() => {
         setIsModalVisible(false);
@@ -45,7 +45,7 @@ function Resume(props) {
   return (
     <div className={styles.resumeContent}>
       <object data={`https://wasd3044.github.io?t=${Math.random()}`} className={styles.clock}/>
-      <Row><h1 className={styles.resumeTitle}>{resume.name}的个人简历</h1> <Button type="primary" style={{float: 'right',right: 0}} onClick={openModal}>让我联系您</Button></Row>
+      <Row><h1 className={styles.resumeTitle}>{resume.name}的个人简历</h1> <Button type="primary" style={{float: 'right',right: 0}} onClick={openModal}>留言给我</Button></Row>
       <Row>
         <Col span={8}>  
           <Row>
