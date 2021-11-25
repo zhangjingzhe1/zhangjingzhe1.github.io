@@ -20,7 +20,7 @@ function Resume(props) {
   setisModalVisible(false)
  }
  const openModal = () => {
-  setLocation({})
+  setLocation({query:{}})
   setisModalVisible(true)
  }
  const applyModal = () => {
