@@ -80,13 +80,15 @@ function Apply(props) {
         {
             !value && !disabled && (
                 <Row>
+                    <div style={{margin: "0 auto"}}>
                     {
-                        !businessNo && <Button onClick={submit}> 提交</Button>
+                        !businessNo && <Button type="primary" onClick={submit}> 提交</Button>
                     }
                     <Button onClick={save}>保存</Button>
                     {
                         !businessNo && <Button> 取消</Button>
                     }
+                    </div>
                 </Row>
             )
         }

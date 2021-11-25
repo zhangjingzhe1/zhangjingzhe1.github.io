@@ -52,11 +52,14 @@ export default function OthersData(props) {
             data?.map((block, key)=>{
                 return (
                     <Row key={key} style={{padding: 10, marginTop: 50, borderBottomColor: "#DDD"}}>
-                        <BasicDatas disabled={disabled} value={block} onChange={(val) => blockOnChange(key, val)} keyValue={`other${key}`} form={form}/>
                         <Row>
                             <Button disabled={disabled} onClick={() => addBlock()}>新增</Button>
                             <Button disabled={disabled} onClick={() => deleteBlock(block)}>删除</Button> 
                         </Row>
+                        <Row>
+                            <BasicDatas disabled={disabled} value={block} onChange={(val) => blockOnChange(key, val)} keyValue={`other${key}`} form={form}/>
+                        </Row>
+                        
                     </Row>
                 )
             })
