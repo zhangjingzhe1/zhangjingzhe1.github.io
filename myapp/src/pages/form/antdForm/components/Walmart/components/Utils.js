@@ -6,7 +6,7 @@ export default function dataToParams (data) {
         ruleType,
         ruleName,
         basicDatas,
-        othersData: othersData.map(item => item.three).filter((key, index, array) => array.includes(key, index)).map(key => othersData.filter(item => item.three===key)),
+        othersData: othersData.map(item => item.three).filter((key, index, array) => !array.includes(key, index+1)).map(key => othersData.filter(item => item.three===key)),
     }
 }
 Array.prototype.mapFlat = function() {

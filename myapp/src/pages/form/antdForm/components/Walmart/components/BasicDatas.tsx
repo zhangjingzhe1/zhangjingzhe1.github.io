@@ -1,6 +1,6 @@
 
 import React, {useState, useEffect} from 'react'
-import { Input, Row, Form, Button } from 'antd';
+import { Input, Row, Form, Button, Col } from 'antd';
 const {Item} = Form;
 export default function BasicDatas(props) {
   const {value, onChange, keyValue, form, disabled} = props;
@@ -34,25 +34,32 @@ export default function BasicDatas(props) {
     changeData(JSON.parse(JSON.stringify(data.filter(line => (line!==item)))))
   }
   return (
-    <div>
+    <div style={{padding:10}}>
         {
             data?.map((item, key)=>{
                 return (
                     <Row key={key}>
-                        <Item
-                        name={`ruleorg${key}${keyValue}`}
-                        label={"机构"}
-                        >
-                            <Input disabled={disabled} onChange={(e) => {valuesChange(e.target.value,'ruleOrg', item)}}/>
-                        </Item>
-                        <Item
-                        name={`rulevalue${key}${keyValue}`}
-                        label={"参数"}
-                        >
-                            <Input disabled={disabled} onChange={(e) => {valuesChange(e.target.value,'ruleValue', item)}}/>
-                        </Item>
-                        <Button disabled={disabled} onClick={() => addline()}>新增</Button>
-                        <Button disabled={disabled} onClick={() => deleteline(item)}>删除</Button>
+                        <Col span={10}>
+                            <Item
+                            name={`ruleorg${key}${keyValue}`}
+                            label={"机构"}
+                            >
+                                <Input disabled={disabled} onChange={(e) => {valuesChange(e.target.value,'ruleOrg', item)}}/>
+                            </Item>
+                        </Col>
+                        <Col span={10}>
+                            <Item
+                            name={`rulevalue${key}${keyValue}`}
+                            label={"参数"}
+                            >
+                                <Input disabled={disabled} onChange={(e) => {valuesChange(e.target.value,'ruleValue', item)}}/>
+                            </Item>
+                        </Col>
+                        <Col span={4}>
+                            <Button disabled={disabled} onClick={() => addline()} style={{width:"50%"}}>+</Button>
+                            <Button disabled={disabled} onClick={() => deleteline(item)} style={{width:"50%"}}>-</Button>
+                        </Col>
+                        
                     </Row>
                 )
             })

@@ -38,22 +38,21 @@ export default function OthersData(props) {
         "three": data.length.toString(),
         "ruleCode": "lmkTypes",
         "ruleValue": "",
-        "ruleOrg": "9999",
+        "ruleOrg": "",
         "flag":"1"
     }])
+    changeData(JSON.parse(JSON.stringify(data)))
   }
   const deleteBlock = (block) => {
     changeData(JSON.parse(JSON.stringify(data.filter(item => item !== block))))
   }
   return (
     <div>
-        <Row>
-        </Row>
         {
             data?.map((block, key)=>{
                 return (
-                    <Row key={key}>
-                        <BasicDatas disabled={disabled} value={block} onChange={(val) => blockOnChange(index, val)} keyValue={`other${key}`} form={form}/>
+                    <Row key={key} style={{padding: 10}}>
+                        <BasicDatas disabled={disabled} value={block} onChange={(val) => blockOnChange(key, val)} keyValue={`other${key}`} form={form}/>
                         <Button disabled={disabled} onClick={() => addBlock()}>新增</Button>
                         <Button disabled={disabled} onClick={() => deleteBlock(block)}>删除</Button> 
                     </Row>

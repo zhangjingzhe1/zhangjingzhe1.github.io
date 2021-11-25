@@ -6,6 +6,7 @@ import dataToParams from "./utils.js"
 // import '../iconfont/iconfont'
 import BasicDatas from './BasicDatas'
 import OthersData from './OthersData'
+import styles from '../index.less'
 const {Item} = Form;
 const data ={
     "ruleType": "use",
@@ -15,7 +16,7 @@ const data ={
     "basicDatas": [{
         "ruleCode": "basicData",
         "ruleValue": "",
-        "ruleOrg": "9999",
+        "ruleOrg": "",
         "flag":"1"
     }],
     "othersData": [
@@ -23,7 +24,7 @@ const data ={
             "three": "0",
             "ruleCode": "basicData",
             "ruleValue": "",
-            "ruleOrg": "9999",
+            "ruleOrg": "",
             "flag":"1"
         }
     ]
@@ -51,6 +52,7 @@ export default function ApplyItems(props) {
                 <Input  disabled={disabled}/>
             </Item>
         </Row>
+        <Row className={styles.walmartLineTittle}><span>基础配置</span></Row>
         <Row>
             <Item
                 name="basicDatas"
@@ -58,6 +60,7 @@ export default function ApplyItems(props) {
                 <BasicDatas form={form} disabled={disabled}/>
             </Item>
         </Row>
+        <Row className={styles.walmartLineTittle}><span>规则配置</span></Row>
         <Row>
             <Item
                 name="othersData"
