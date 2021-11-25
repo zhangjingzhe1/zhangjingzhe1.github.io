@@ -34,7 +34,7 @@ export default function BasicDatas(props) {
     changeData(JSON.parse(JSON.stringify(data.filter(line => (line!==item)))))
   }
   return (
-    <div style={{padding:10}}>
+    <div style={{padding:10, width:"100%"}}>
         {
             data?.map((item, key)=>{
                 return (
