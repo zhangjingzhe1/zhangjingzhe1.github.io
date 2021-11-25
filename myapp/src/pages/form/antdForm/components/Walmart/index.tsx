@@ -57,6 +57,7 @@ function Resume(props) {
         visible={isModalVisible} 
         footer={null}
         onCancel={closeModal}
+        width={850}
       >
         <Apply
           itemName="itemName"

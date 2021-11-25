@@ -43,6 +43,7 @@ export default function BasicDatas(props) {
                             <Item
                             name={`ruleorg${key}${keyValue}`}
                             label={"机构"}
+                            rules={[{required: true, message: "请选择机构"}]}
                             >
                                 <Input disabled={disabled} onChange={(e) => {valuesChange(e.target.value,'ruleOrg', item)}}/>
                             </Item>
@@ -51,6 +52,7 @@ export default function BasicDatas(props) {
                             <Item
                             name={`rulevalue${key}${keyValue}`}
                             label={"参数"}
+                            rules={[{required: true, message: "请输入参数"}]}
                             >
                                 <Input disabled={disabled} onChange={(e) => {valuesChange(e.target.value,'ruleValue', item)}}/>
                             </Item>
