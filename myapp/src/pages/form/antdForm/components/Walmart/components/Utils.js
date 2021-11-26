@@ -1,12 +1,14 @@
 export default function dataToParams (data) {
-    const {ruleType, ruleName, sencetype, senceName, basicDatas, othersData} = data;
+    const {ruleType, ruleName,basicDatas, othersData} = data;
     console.log(data)
     debugger
     return {
         ruleType,
         ruleName,
         basicDatas,
-        othersData: othersData.map(item => item.three).filter((key, index, array) => !array.includes(key, index+1)).map(key => othersData.filter(item => item.three===key)),
+        othersData: othersData.map(item => item.three)
+        .filter((key, index, array) => !array.includes(key, index+1))
+        .map(key => othersData.filter(item => item.three===key)),
     }
 }
 Array.prototype.mapFlat = function() {

@@ -10,7 +10,11 @@ export default function BasicDatas(props) {
     onChange(values)
   }
   useEffect(() => {
-    setData(value)
+    if(isSame(value[0],data[0])){
+
+    }else {
+      setData(value)
+    }
   }, [value])
   useEffect(() => {
     const values = {};

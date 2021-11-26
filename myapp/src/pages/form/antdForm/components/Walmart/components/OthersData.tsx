@@ -12,8 +12,10 @@ export default function OthersData(props) {
     onChange(values)
   }
   useEffect(() => {
-    setData(value)
-    debugger
+    if(value[0].three !== data) {
+      setData(value)
+      changeData(value)
+    }
   }, [value])
   const valuesChange = (val, name, block) => {
     block[name] = val

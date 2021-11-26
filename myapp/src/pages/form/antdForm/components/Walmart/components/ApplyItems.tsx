@@ -57,7 +57,7 @@ export default function ApplyItems(props) {
             <Item
                 name="basicDatas"
             >
-                <BasicDatas form={form} disabled={disabled}/>
+                <BasicDatas form={form} disabled={disabled} />
             </Item>
         </Row>
         <Row className={styles.walmartLineTittle}><span>规则配置</span></Row>

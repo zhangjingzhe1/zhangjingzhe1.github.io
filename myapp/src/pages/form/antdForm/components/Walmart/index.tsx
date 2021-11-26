@@ -65,8 +65,7 @@ function Resume(props) {
           typeId="typeId"
           subTypeId="subTypeId"
           memo="memo"
-          location={location}
-          formatData={formatData}
+          formatData={formatData{return}}
           closeModal={closeModal}
         >
           <ApplyItems />

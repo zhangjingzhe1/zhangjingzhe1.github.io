@@ -35,11 +35,11 @@ function IndexPage(props) {
               if(item.children) {
                 return <SubMenu key="sub1" icon={<span className={`${icons.iconfont} ${icons[item.icon]}`}></span>} title={item.text}>
                   {
-                    item.children.map((child, key) => {
+                    item.children.map((child, key) => 
                       <Menu.Item key={child.link}>
                         <Link to={child.link}>{child.text}</Link>
                       </Menu.Item>
-                    })
+                    )
                   }
               </SubMenu>
               } else {

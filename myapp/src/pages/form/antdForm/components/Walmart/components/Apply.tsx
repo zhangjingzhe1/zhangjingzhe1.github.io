@@ -1,6 +1,6 @@
 
 import React, {useState, useEffect} from 'react'
-import { Modal, Button, Row, Form } from 'antd';
+import { Modal, Button, Row, Form, Space } from 'antd';
 import {Link, connect} from 'umi';
 
 const {Item} = Form;
@@ -28,7 +28,7 @@ function Apply(props) {
       applyRoleId: "012"
   }
   useEffect(()=> {
-    if(menuFlag === "1" || ["1","2"].includes(processState) || value) {
+    if(menuFlag === "1" || ["1","2"].includes(processState)) {
         setDisabled(true)
     } else {
         setDisabled(false)
@@ -41,7 +41,7 @@ function Apply(props) {
     if(applyItem) {
         console.log(applyItem.businessData)
         //9030972585
-        Object.assign(itemBody, {businessData: applyItem.businessData})
+        //Object.assign(itemBody, {businessData: applyItem.businessData})
         form.setFieldsValue({business: JSON.parse(applyItem.businessData)})
     }
   },[applyItem])
@@ -81,13 +81,15 @@ function Apply(props) {
             !value && !disabled && (
                 <Row>
                     <div style={{margin: "0 auto"}}>
-                    {
-                        !businessNo && <Button type="primary" onClick={submit}> 提交</Button>
-                    }
-                    <Button onClick={save}>保存</Button>
-                    {
-                        !businessNo && <Button> 取消</Button>
-                    }
+                        <Space>
+                            {
+                                !businessNo && <Button type="primary" onClick={submit}> 提交</Button>
+                            }
+                            <Button onClick={save}>保存</Button>
+                            {
+                                !businessNo && <Button> 取消</Button>
+                            }
+                        </Space>
                     </div>
                 </Row>
             )
