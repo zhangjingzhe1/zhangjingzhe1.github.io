@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "2198901",
+      "name": "游戏竞技",
+      "font_class": "youxijingji",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "8952924",
+      "name": "java-script",
+      "font_class": "javascript",
+      "unicode": "e810",
+      "unicode_decimal": 59408
+    },
+    {
+      "icon_id": "9599344",
+      "name": "我的简历",
+      "font_class": "wodejianli",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "14441174",
+      "name": "plus",
+      "font_class": "plus",
+      "unicode": "e694",
+      "unicode_decimal": 59028
+    },
+    {
       "icon_id": "774444",
       "name": "扳手",
       "font_class": "zujian",
