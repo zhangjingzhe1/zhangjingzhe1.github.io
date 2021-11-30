@@ -44,4 +44,4 @@ const mapStateToProps = ({main}) => {
         }
       }
   }
-  export default connect(mapStateToProps, dispatchToProps)(Note);
+  export default connect(mapStateToProps, dispatchToProps)(CssNote);
