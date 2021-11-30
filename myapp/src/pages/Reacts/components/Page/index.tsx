@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Input, Modal, Row, Form, Button, Tooltip } from 'antd';
 
 import styles from './index.less';
-import icons from '../../../../../iconfont/iconfont.css';
+import icons from '../../../../iconfont/iconfont.css';
 const {TextArea} = Input;
 const {Item} = Form;
 export default function Page(props) {

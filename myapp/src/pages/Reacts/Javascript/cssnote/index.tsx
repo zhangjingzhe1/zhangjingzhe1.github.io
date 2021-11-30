@@ -3,25 +3,25 @@ import { Spin } from 'antd';
 import { connect} from 'umi';
 
 import Page from "../../components/Page"
-function Note(props) {
-    const {editMode, getData, setData, notes, fource} = props;
+function CssNote(props) {
+    const {editMode, getData, setData, cssnote, fource} = props;
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        getData({name: "javascript.note"}).then(() => {setLoading(false)})
+        getData({name: "javascript.cssnote"}).then(() => {setLoading(false)})
     }, [])
     const handleOk = (values, showOne) => {
       const {label, ...others} = values;
       const functions = Object.keys(others).map(key => others[key])
-      return setData({name: 'javascript.note', fource, data: { ...showOne, label, functions}}).then(() => {
+      return setData({name: 'javascript.cssnote', fource, data: { ...showOne, label, functions}}).then(() => {
         setLoading(true)
-        return getData({name: "javascript.note"}).then(() => {setLoading(false)})
+        return getData({name: "javascript.cssnote"}).then(() => {setLoading(false)})
       })
     }
   return (
     <Spin spinning={loading}>
         <Page 
-          title="Javascript笔记"
-          data={notes}
+          title="CSS笔记"
+          data={cssnote}
           editMode={editMode}
           fource={fource}
           submit={handleOk}
@@ -31,7 +31,7 @@ function Note(props) {
 }
 const mapStateToProps = ({main}) => {
     return {
-     notes: main.javascriptnote
+      cssnote: main.javascriptcssnote
     }
   }
   const dispatchToProps = dispatch => {
