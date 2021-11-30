@@ -49,10 +49,10 @@ const Model = {
       },
       setgetDate(state, { payload }) {
         //setAuthority(payload.currentAuthority); //设置验证识别
-        console.log(payload)
         const {data = {}, config ={}} = payload;
         const obj={};
-        obj[config.params.name.replace('.','')] = data.data;
+        if (config.params?.name)
+        obj[config.params?.name.replace('.','')] = data.data;
         return { ...state, ...obj };
       },
     },

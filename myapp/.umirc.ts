@@ -5,7 +5,6 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  mfsu:{},
   history: {type: 'hash'},
   routes: Router,
   fastRefresh: {},

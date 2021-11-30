@@ -1,6 +1,6 @@
 
 import React, {useState, useEffect} from 'react'
-import { Menu, Button, Row } from 'antd';
+import { Menu, Modal, Row, Input } from 'antd';
 import {Link, connect} from 'umi';
 
 import styles from './index.less';
@@ -9,51 +9,46 @@ import icons from '../iconfont/iconfont.css';
 
 const { SubMenu } = Menu;
 function IndexPage(props) {
-  console.log(props)
   const {location} = props;
   const {pathname} = location;
   useEffect(() => {
     props.getMenus()
   }, [])
   const {title, menus} = props;
-  console.log(props.children)
+  const [editMode, setEditMode] = useState(false)
+    const [fource, setpasd] = useState('')
+    const getpasword = (e) => {
+      setpasd(e.target.value)
+    }
+    useEffect(() => {
+        let flag = [69,68,73,84,77,79,68,69];
+        window.addEventListener('keydown', (e) => {
+            const {keyCode} = e;
+            if(keyCode === flag[0]) {
+                flag.shift()
+            } else {
+                flag = [69,68,73,84,77,79,68,69];
+            }
+            if(!flag.length) {
+                setEditMode(true)
+                flag = [69,68,73,84,77,79,68,69];
+                Modal.confirm({
+                    title: '提示',
+                    content: <div>进入编辑模式<Input type="password" onChange={getpasword}/></div>,
+                    okText: '确认',
+                    cancelText: '取消',
+                });
+            }
+        })
+    },[])
   return (
     <div>
-      <Row className={styles.title}> <div>{title}</div></Row>
-      <div style={{ width: 188}}>
-        <Menu
-          defaultSelectedKeys={[pathname]}
-          defaultOpenKeys={['sub1']}
-          mode="inline"
-          theme="dark"
-          inlineCollapsed={false}
-        >
-          
-          {
-            menus.map((item, index) => {
-              
-              if(item.children) {
-                return <SubMenu key="sub1" icon={<span className={`${icons.iconfont} ${icons[item.icon]}`}></span>} title={item.text}>
-                  {
-                    item.children.map((child, key) => 
-                      <Menu.Item key={child.link}>
-                        <Link to={child.link}>{child.text}</Link>
-                      </Menu.Item>
-                    )
-                  }
-              </SubMenu>
-              } else {
-                return <Menu.Item key={item.link} icon={<span className={`${icons.iconfont} ${icons[item.icon]}`}></span>}>
-                <Link to={item.link}>{item.text}</Link>
-              </Menu.Item>
-              }
-            })
-          }
-        </Menu>
-      </div>
-      <div className={styles.mainContent}>
-        {props.children}
-      </div>
+      {
+        React.cloneElement(props.children, {
+            editMode,
+            fource,
+         })
+      }
     </div>
   );
 }

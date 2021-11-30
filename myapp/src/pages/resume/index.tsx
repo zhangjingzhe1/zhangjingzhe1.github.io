@@ -12,15 +12,11 @@ function Resume(props) {
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [form] = Form.useForm();
   useEffect(()=> {
-    getData({name:'resume.gaoxiaowei'}).then(res => {
-      console.log(res)
-    })
+    getData({name:'resume.gaoxiaowei'})
   },[]);
-  useEffect(()=> {
-    console.log(resume)
-  },[resume])
   const openModal = () => {
     setIsModalVisible(true);
+    form.setFieldsValue({contact: ""});
   }
   const handleOk = () => {
     Modal.confirm({
@@ -30,7 +26,6 @@ function Resume(props) {
       onOk:() => {
         setIsModalVisible(false);
         form.validateFields().then(values => {
-          console.log(values)
           setData({name: 'others.message', data: values})
         })
       },
@@ -246,10 +241,11 @@ function Resume(props) {
         }
       </Row>
       <Modal
-        title="我怎么联系您？" 
+        title="给我留言" 
         visible={isModalVisible} 
         onOk={handleOk} 
         onCancel={handleCancel}
+        destroyOnClose
         cancelText={'取消'}
         okText={'确定'}
       >

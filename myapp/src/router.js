@@ -1,17 +1,21 @@
 
-import formRouters from './pages/form/router';
-import javascriptRouters from './pages/Javascript/router';
+
+import javascriptRouters from './pages/Reacts/Javascript/router';
 export default [
-    { path: '/react', component: './index',
+    { path: '/', component: './index',
+    
       routes: [
-        { path: '/react/form', component: './form/index',
-          routes: formRouters
+        { path: '/1024', component: './1024/index'},
+        { path: '/resume', component: './Resume/index'},
+        { path: '/react', component: './Reacts/index',
+          routes: [
+            { path: '/react/Javascript', component: './Reacts/Javascript/index',
+              routes: javascriptRouters
+            }
+          ],
         },
-        { path: '/react/Javascript', component: './Javascript/index',
-          routes: javascriptRouters
-        },
-      ]
+        { redirect:'/react'}
+      ],
     },
-    { path: '/1024', component: './1024/index'},
-    { path: '/', component: './resume/index'},
+    
   ]
