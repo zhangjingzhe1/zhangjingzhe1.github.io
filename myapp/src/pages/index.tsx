@@ -42,7 +42,7 @@ function IndexPage(props) {
         })
     },[])
   return (
-    <div>
+    <div style={{height: "100%"}}>
       {
         React.cloneElement(props.children, {
             editMode,
