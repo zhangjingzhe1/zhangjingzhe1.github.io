@@ -53,7 +53,8 @@ export default function Page(props) {
                 </h2>
                 {
                   item.functions?.map((values, key) => {
-                    return <TextArea autoSize={{minRows: 5}} value={values} key={key}/>
+                    return <TextArea autoSize={{minRows: 5}} value={values.value} key={key}/>
+                    // return values.toString();
                   })
                 }
               </Row>
