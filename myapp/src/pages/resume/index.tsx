@@ -49,8 +49,9 @@ function Resume(props) {
   };
   return (
     <div className={styles.resumeContent}>
-      <Spin spinning={!resume.name}>
       <object data={`https://wasd3044.github.io?t=${Math.random()}`} className={styles.clock}/>
+      <Spin spinning={!resume.name}>
+      
           <Row><h1 className={styles.resumeTitle}>{resume.name}的个人简历</h1> <Button type="primary" style={{float: 'right',right: 0}} onClick={openModal}>留言给我</Button></Row>
           <Row>
             <Col span={8}>  
