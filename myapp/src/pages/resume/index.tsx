@@ -48,11 +48,9 @@ function Resume(props) {
     setIsModalVisible(false);
   };
   return (
-    <Spin spinning={!resume.name}>
-      {
-        resume.name && (
-          <div className={styles.resumeContent}>
-          <object data={`https://wasd3044.github.io?t=${Math.random()}`} className={styles.clock}/>
+    <div className={styles.resumeContent}>
+      <Spin spinning={!resume.name}>
+      <object data={`https://wasd3044.github.io?t=${Math.random()}`} className={styles.clock}/>
           <Row><h1 className={styles.resumeTitle}>{resume.name}的个人简历</h1> <Button type="primary" style={{float: 'right',right: 0}} onClick={openModal}>留言给我</Button></Row>
           <Row>
             <Col span={8}>  
@@ -253,6 +251,8 @@ function Resume(props) {
               })
             }
           </Row>
+      </Spin>
+         
           <Modal
             title="给我留言" 
             visible={isModalVisible} 
@@ -268,12 +268,8 @@ function Resume(props) {
                 </Item>
             </Form>
           </Modal>
-        </div>
-        )
-        
-      }
-
-    </Spin>
+    </div>
+    
   );
 }
 const mapStateToProps = ({main}) => {
