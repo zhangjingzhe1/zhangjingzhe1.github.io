@@ -9,36 +9,41 @@ const Model = {
   
       effects: {
       *getMenus({ payload }, { call, put }) {
-        const response = yield call(getMenus, payload);
-        yield put({
-          type: 'sendData', //调用reducers同步方法改变仓库数据
-          payload: response,
-              }); 
-              // 通讯成功
-        if (response.status === 'ok') {
-          message.success('🎉 🎉 🎉  通讯成功！');
-              }
+        try {
+          const response = yield call(getMenus, payload);
+          yield put({
+            type: 'sendData', //调用reducers同步方法改变仓库数据
+            payload: response,
+          });
+          return response
+        } catch (err) {
+          return Promise.reject(err)
+        } 
           },
       *getData({ payload }, { call, put }) {
-        const response = yield call(getData, payload);
-        yield put({
-          type: 'setgetDate', //调用reducers同步方法改变仓库数据
-          payload: response,
-              }); 
-              // 通讯成功
-        if (response.status === 'ok') {
-          message.success('🎉 🎉 🎉  通讯成功！');
-              }
+        try {
+          const response = yield call(getData, payload);
+          yield put({
+            type: 'setgetDate', //调用reducers同步方法改变仓库数据
+            payload: response,
+          }); 
+          return response
+        } catch (err) {
+          return Promise.reject(err)
+        } 
           },
       *setData({ payload }, { call, put }) {
-        const response = yield call(setData, payload);
-        yield put({
-          type: 'setgetDate', //调用reducers同步方法改变仓库数据
-          payload: response,
-              }); 
-              // 通讯成功
-        return response
-          }
+        try {
+          const response = yield call(setData, payload);
+          yield put({
+            type: 'setgetDate', //调用reducers同步方法改变仓库数据
+            payload: response,
+            }); 
+          return response
+        } catch (err) {
+          return Promise.reject(err)
+        } 
+      }
       },
     reducers: {
       sendData(state, { payload }) {
